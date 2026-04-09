@@ -17,7 +17,7 @@ const io = require("socket.io")(server, { //Importa Socket.io e configura para o
     // Exemplo: "http://seu.ip.aqui:5173" para rede
 })
 
-const PORT = 3001; // Porta na qual o servidor irá executar conexões
+const PORT = 3000; // Porta na qual o servidor irá executar conexões
 
 // ===================================
 // EVENT LISTENERS: Quando um cliente se conecta
