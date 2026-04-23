@@ -12,12 +12,12 @@ const server = require("http").createServer(app);  // Importa módulo HTTP nativ
 const io = require("socket.io")(server, { //Importa Socket.io e configura para o servidor HTTP
     // CORS (Cross-Origin Resource Sharing)  permite que clientes de outros domínios/IPs se conectem
     // Altere o IP para o IP da máquina onde o servidor esta rodando
-    cors: { origin: "http://localhost:5173" },
+    cors: { origin: "http://localhost:3000" },
     // Exemplo: "http://localhost:5173" para desenvolvimento local
     // Exemplo: "http://seu.ip.aqui:5173" para rede
 })
 
-const PORT = 3000; // Porta na qual o servidor irá executar conexões
+const PORT = 3001; // Porta na qual o servidor irá executar conexões
 
 // ===================================
 // EVENT LISTENERS: Quando um cliente se conecta
@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
  // ===================================
  // EVENTO: Usuário define seu nome
  // ===================================
- socket.on("set_Username", (username) => {
+ socket.on("set_username", (username) => {
     // Armazena o nome de usuário no objeto socket para uso posterior
     socket.data.username = username;
     // Registra no console que um usuário conectou
@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
 // EVENTO: Servidor recebe mensagem
  // ===================================
 
- socket.on("Message", (text) => {
+ socket.on("message", (text) => {
     // Quando um cliente envia uma mensagem, o servidor:
     // 1. Cria um obk=jeto com dados da mensagem
     // 2. Envia para TODOS os clientes conectados usando io.emait()
